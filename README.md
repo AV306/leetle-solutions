@@ -45,4 +45,7 @@ def solve(list1, list2):
     
   return newList;
 ```
-i and j will show a pattern like (0, 0), (1, 0), (1, 1)... as we compare each list1 element with indices "next to" (difference ≤ 1) the indexof the current list2 element to determine the order in which we interleave them.
+
+`i` and `j` will show a pattern like (0, 0), (1, 0), (1, 1)... as we compare each `list1` element with indices "next to" (difference ≤ 1) the index of the current `list2` element to determine the order in which we interleave them.
+
+It's like sorting two (sorted) stacks of numbered pages into one new stack - you look at the two topmost pages, put the smaller-numbered (or bigger, whichever direction you're sorting) page onto the new stack, then compare the two new topmost pages and repeat.
