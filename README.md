@@ -49,3 +49,29 @@ def solve(list1, list2):
 `i` and `j` will show a pattern like (0, 0), (1, 0), (1, 1)... as we compare each `list1` element with indices "next to" (difference ≤ 1) the index of the current `list2` element to determine the order in which we interleave them.
 
 It's like sorting two (sorted) stacks of numbered pages into one new stack - you look at the two topmost pages, put the smaller-numbered (or bigger, whichever direction you're sorting) page onto the new stack, then compare the two new topmost pages and repeat.
+
+
+# Day 24 - Minimum Rotated Sorted Array
+
+A much easier version of the LeetCode problem. Given a sorted array that has been shifted in a circular manner (with wrapping) by some amount in either direction, find the smallest element.
+
+Observe that the array will have two sections, each sorted and separated by a "drop" - e.g. [4, 5, 6, 1, 2, 3] (the first section can have length 0, i.e. the array was not shifted.
+
+The smallest element will be the one just after the "drop". We can identify the drop by comparing each element with the one before it, starting from the second element.
+
+```python
+def solve( nums ):
+  if len( nums ) == 1:
+    return nums[0];
+
+  # Starting from 1 works for Leetle, but it won't
+  # work for the case where the array has not been rotated.
+  # Since python supports negative indices, starting from 0
+  # works here, but may jot work in other languages.
+  for i in range( 0, len( nums ) ):
+    if nums[i] > nums[i-1]:
+      # Still in the ascending section
+      continue;
+
+    return nums[i];
+```
