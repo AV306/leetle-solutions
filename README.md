@@ -75,3 +75,13 @@ def solve( nums ):
 
     return nums[i];
 ```
+
+# Day 31 - Length of Last Word
+
+The catch here is that test-case 2 has an extra space at the end (or something to that effect), so if you simply `s.split( " " )[-1]` you'll get a string of length 0 instead of the last word.
+
+```python
+def solve(s):
+  last = s.strip().split( " " )[-1];
+  return len( last );
+```
